@@ -21,10 +21,20 @@ export default function Textform(props) {
   const handleLoClick = () => {
     setText(text.toLowerCase());
   };
+
+  const handleClearClick = () => {
+    let btnArr = document.getElementsByClassName("btn");
+    Array.from(btnArr).forEach(element => {
+      element.classList.remove('btn-primary');
+      element.classList.add('btn-danger');
+    })
+    setText("");
+  }
   
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
+
 
   return (
     <>
@@ -52,6 +62,9 @@ export default function Textform(props) {
         </button>
         <button className="btn btn-primary mx-2" onClick={handleLoClick}>
           Convert to lower case
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleClearClick}>
+          Clear
         </button>
       </div>
 
