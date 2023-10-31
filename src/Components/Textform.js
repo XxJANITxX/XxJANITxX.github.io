@@ -4,79 +4,89 @@
   * lowercase conversion
   * Word Count, characters Count
   * Time to read
-*/ 
+*/
 
 // Importing state from react
 import React, { useState } from "react";
 
 export default function Textform(props) {
-  // Introducing hook to our functional component (video 7)
-  const [text, setText] = useState("");
+    // Introducing hook to our functional component (video 7)
+    const [text, setText] = useState("");
 
-  // Handling onclick and onchange event (video 7)
-  const handleUpClick = () => {
-    setText(text.toUpperCase());
-  };
-  
-  const handleLoClick = () => {
-    setText(text.toLowerCase());
-  };
+    // Handling onclick and onchange event (video 7)
+    const handleUpClick = () => {
+        setText(text.toUpperCase());
+    };
 
-  const handleClearClick = () => {
+    const handleLoClick = () => {
+        setText(text.toLowerCase());
+    };
 
     // Added this feature in ( video 9 )
-    let btnArr = document.getElementsByClassName("btn");
-    Array.from(btnArr).forEach(element => {
-      element.classList.remove('btn-primary');
-      element.classList.add('btn-danger');
-    })
-    setText("");
-  }
-  
-  const handleOnChange = (event) => {
-    setText(event.target.value);
-  };
+    const handleClearClick = () => {
+        let btnArr = document.getElementsByClassName("btn");
+        Array.from(btnArr).forEach(element => {
+            element.classList.remove('btn-primary');
+            element.classList.add('btn-danger');
+        })
+        setText("");
+    }
+
+    // Added this feature in video 9
+    const handleCopy = () => {
+        let copyText = document.getElementById('myBox')
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+    }
+
+    const handleOnChange = (event) => {
+        setText(event.target.value);
+    };
 
 
-  return (
-    <>
-      <div className="container">
-        <div className="mb-3">
-          <label htmlFor="myVox" className="form-label">
-            <h1>
-              {props.heading} - {text}
-            </h1>
-          </label>
+    return (
+        <>
+            <div className="container">
+                <div className="mb-3">
+                    <label htmlFor="myBox" className="form-label">
+                        <h1>
+                            {props.heading} - {text}
+                        </h1>
+                    </label>
 
-          {/* Adding onchange event handler and displaying updated text */}
-          <textarea
-            className="form-control"
-            id="myBox"
-            onChange={handleOnChange}
-            rows={10}
-            value={text}
-            placeholder="Enter your text here"
-          />
-        </div>
+                    {/* Adding onchange event handler and displaying updated text */}
+                    <textarea
+                        className="form-control"
+                        id="myBox"
+                        onChange={handleOnChange}
+                        rows={10}
+                        value={text}
+                        placeholder="Enter your text here"
+                    />
+                </div>
 
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
-          Convert to upper case
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>
-          Convert to lower case
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>
-          Clear
-        </button>
-      </div>
+                <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+                    Convert to upper case
+                </button>
+                <button className="btn btn-primary mx-2" onClick={handleLoClick}>
+                    Convert to lower case
+                </button>
+                <button className="btn btn-primary mx-2" onClick={handleClearClick}>
+                    Clear
+                </button>
+                <button className="btn btn-primary mx-2" onClick={handleCopy}>
+                    Copy
+                </button>
+            </div>
 
-      <div className="container my-2">
-        <h2>Your text summary</h2>
-        <p>{text.split(" ").length} Word and {text.length} character</p>
-        <p>This content will take {Math.round(0.008 * text.split(" ").length)} time to read</p>
-        <h3> Preview </h3>
-        <p>{text}</p>
-      </div>
-    </>
-  );
+            <div className="container my-2">
+                <h2>Your text summary</h2>
+                <p>{text.split(" ").length} Word and {text.length} character</p>
+                <p>This content will take {Math.round(0.008 * text.split(" ").length)} time to read</p>
+                <h3> Preview </h3>
+                <p>{text}</p>
+            </div>
+        </>
+    );
 }
