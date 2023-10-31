@@ -21,7 +21,7 @@ export default function Textform(props) {
     const handleLoClick = () => {
         setText(text.toLowerCase());
     };
-
+    
     // Added this feature in ( video 9 )
     const handleClearClick = () => {
         let btnArr = document.getElementsByClassName("btn");
@@ -29,6 +29,7 @@ export default function Textform(props) {
             element.classList.remove('btn-primary');
             element.classList.add('btn-danger');
         })
+        props.showAlert('Text Cleared', 'danger');
         setText("");
     }
 
@@ -38,6 +39,7 @@ export default function Textform(props) {
         copyText.select();
         copyText.setSelectionRange(0, 99999);
         document.execCommand('copy');
+        props.showAlert('Text Copied', 'success');
     }
 
     const handleOnChange = (event) => {
