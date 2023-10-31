@@ -11,7 +11,7 @@ function App() {
     const [mode, setMode] = useState('light');
     const [textMode, setTextMdoe] = useState('dark');
 
-    // Creating toggleMode function which will be passed as a parameter in props
+    // Creating toggleMode function which will be passed as a parameter in props (video 12)
     const toggleMode = () => {
         if(mode==='light'){
             setMode('dark');
