@@ -10,10 +10,10 @@
 import React, { useState } from "react";
 
 export default function Textform(props) {
-  // Introducing hook to our functional component
+  // Introducing hook to our functional component (video 7)
   const [text, setText] = useState("");
 
-  // Handling onclick and onchange event
+  // Handling onclick and onchange event (video 7)
   const handleUpClick = () => {
     setText(text.toUpperCase());
   };
@@ -23,6 +23,8 @@ export default function Textform(props) {
   };
 
   const handleClearClick = () => {
+
+    // Added this feature in ( video 9 )
     let btnArr = document.getElementsByClassName("btn");
     Array.from(btnArr).forEach(element => {
       element.classList.remove('btn-primary');
