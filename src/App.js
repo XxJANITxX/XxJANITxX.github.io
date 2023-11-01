@@ -33,6 +33,8 @@ function App() {
                 color:'white',
             });
             setLightMode(null);
+            // Changing Title dynamically (Video 15)
+            document.title = "TextUtils - Dark Mode";
 
         }else{
             setMode('light');
@@ -46,6 +48,9 @@ function App() {
                 text:'Light',
                 color:'black'
             });
+
+            // Changing Title dynamically (Video 15)
+            document.title = "TextUtils - Light Mode";
             setDarkMode(null);
         }
     }
