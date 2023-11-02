@@ -2,7 +2,7 @@
 import React from 'react'
 // Importing prop-types (video 6)
 import PropTypes from 'prop-types'
-// import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 // Adding props object in Navbar component (video 6)
@@ -13,7 +13,7 @@ export default function Navbar(props) {
             <div className="container-fluid">
                 {/* Using props obj to add parameters passed (video 6)*/}
                 {/* Added Link tag instead of anchor tag (video 16) */}
-                <a className="navbar-brand" href="#">{props.title}</a>
+                <Link className="navbar-brand" to="/">{props.title}</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -22,11 +22,11 @@ export default function Navbar(props) {
                         <li className="nav-item">
                             {/* Added Link tag instead of anchor tag (video 16) */}
                             {/* <Link className="nav-link active" aria-current="page" to="/">Home</Link> */}
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
                             {/* Added Link tag instead of anchor tag (video 16) */}
-                            <a className="nav-link active" href="#">{props.about}</a>
+                            <Link className="nav-link active" to="/about">{props.about}</Link>
                         </li>
                     </ul>
 

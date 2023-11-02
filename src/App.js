@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import './App.css';
-// import About from './Components/About';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Textform from './Components/Textform';
 import Alert from './Components/Alert';
 import ModeButton from './Components/ModeButton';
 
 // Imported Router, Routes and Route (video 16)
-// import {
-//     BrowserRouter as Router,
-//     Routes,
-//     Route,
-// } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
 
 
 
@@ -80,7 +80,7 @@ function App() {
     return (
         <>
             {/* Added Router space (video 16) */}
-            {/* <Router> */}
+            <Router>
                 {/* Passing prop variables (video 6) title and about */}
                 {/* Created mode and toggleMode props (video 12) */}
                 <Navbar title="Text Utils" about="About US" mode={mode} textMode={textMode} toggleMode={toggleMode} />
@@ -106,15 +106,15 @@ function App() {
 
                 <div className="container my-3">
                     {/* Added Routes to About us and form (video 16) */}
-                    {/* <Routes>
-                        Added route with elements (video 16)
+                    <Routes>
+                        {/* Added route with elements (video 16) */}
                         <Route exact path="/about" element={<About />} />
                         <Route exact path="/" element={<Textform heading="Enter the text to analyze" showAlert={showAlert} />} />
-                    </Routes> */}
+                    </Routes>
 
-                    <Textform heading="Enter the text to analyze" showAlert={showAlert} />
+                    {/* <Textform heading="Enter the text to analyze" showAlert={showAlert} /> */}
                 </div>
-            {/* </Router> */}
+            </Router>
         </>
     );
 }
