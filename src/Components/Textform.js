@@ -35,10 +35,11 @@ export default function Textform(props) {
 
     // Added this feature in video 9
     const handleCopy = () => {
-        let copyText = document.getElementById('myBox')
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand('copy');
+        // let copyText = document.getElementById('myBox')
+        // copyText.select();
+        // copyText.setSelectionRange(0, 99999);
+        // document.execCommand('copy');
+        navigator.clipboard.writeText(text);
         props.showAlert('Text Copied', 'success');
     }
 
@@ -87,7 +88,7 @@ export default function Textform(props) {
 
             <div className="container my-2">
                 <h2>Your text summary</h2>
-                <p>{ text.split(" ").filter((element)=>{ return element.length !== 0 }).length} Word and {text.length} character</p>
+                <p>{ text.split(/\s+/).filter((element)=>{ return element.length !== 0 }).length} Word and {text.length} character</p>
                 <p>This content will take {Math.round(0.008 * text.split(" ").length)} time to read</p>
                 <h3> Preview </h3>
                 <p>{text.length > 0 ? text:"Nothing to display"}</p>
