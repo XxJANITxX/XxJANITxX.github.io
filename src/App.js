@@ -108,7 +108,7 @@ function App() {
                     {/* Added Routes to About us and form (video 16) */}
                     <Routes>
                         {/* Added route with elements (video 16) */}
-                        <Route exact path="/about" element={<About />} />
+                        <Route exact path="/about" element={<About mode={mode} textMode={textMode}/>} />
                         <Route exact path="/" element={<Textform heading="Enter the text to analyze" showAlert={showAlert} />} />
                     </Routes>
 

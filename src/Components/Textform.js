@@ -68,23 +68,26 @@ export default function Textform(props) {
                     />
                 </div>
 
-                <button className="btn btn-primary mx-2" onClick={handleUpClick}>
-                    Convert to upper case
-                </button>
-                <button className="btn btn-primary mx-2" onClick={handleLoClick}>
-                    Convert to lower case
-                </button>
-                <button className="btn btn-primary mx-2" onClick={handleClearClick}>
-                    Clear
-                </button>
-                <button className="btn btn-primary mx-2" onClick={handleCopy}>
-                    Copy
-                </button>
+                <div className="container">
+                    <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>
+                        Convert to upper case
+                    </button>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>
+                        Convert to lower case
+                    </button>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClearClick}>
+                        Clear
+                    </button>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopy}>
+                        Copy
+                    </button>
+
+                </div>
             </div>
 
             <div className="container my-2">
                 <h2>Your text summary</h2>
-                <p>{text===""?0:text.split(" ").length} Word and {text.length} character</p>
+                <p>{ text.split(" ").filter((element)=>{ return element.length !== 0 }).length} Word and {text.length} character</p>
                 <p>This content will take {Math.round(0.008 * text.split(" ").length)} time to read</p>
                 <h3> Preview </h3>
                 <p>{text.length > 0 ? text:"Nothing to display"}</p>

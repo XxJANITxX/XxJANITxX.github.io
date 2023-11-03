@@ -1,45 +1,48 @@
 // This component is created for video 10
 
-import React, {useState} from "react";
+// import React, {useState} from "react";
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle, setMyStyle] = useState({
-        color:'black',
-        backgroundColor:'white',
-        border:'1px solid black'
-    });
-
-    const [buttonName, setButtonName] = useState("Enable dark mode");
-
-    const darkModeEnable = (event) =>{
-
-        if(myStyle.color === "white"){
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white',
-                border:'1px solid black'
-            });
-            setButtonName("Enable light mode");
-        }else{
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black',
-                border:'1px solid white'
-            });
-            setButtonName("Enable dark mode");
-        }
+    const styleObject = {
+        backgroundColor:props.mode==='dark'?'black':'white',
+        color:props.textMode
     }
+    // const [myStyle, setMyStyle] = useState({
+    //     color:'black',
+    //     backgroundColor:'white',
+    //     border:'1px solid black'
+    // });
+
+    // const [buttonName, setButtonName] = useState("Enable dark mode");
+
+    // const darkModeEnable = (event) =>{
+
+    //     if(myStyle.color === "white"){
+    //         setMyStyle({
+    //             color:'black',
+    //             backgroundColor:'white',
+    //             border:'1px solid black'
+    //         });
+    //         setButtonName("Enable light mode");
+    //     }else{
+    //         setMyStyle({
+    //             color:'white',
+    //             backgroundColor:'black',
+    //             border:'1px solid white'
+    //         });
+    //         setButtonName("Enable dark mode");
+    //     }
+    // }
 
     return (
-        <div className="container" style={myStyle}>
+        <div className="container" style={styleObject}>
             <h1 className="my-2">About Us</h1>
             <div className="accordion accordion-flush" id="accordionFlushExample">
-                <div className="accordion-item" style={myStyle}>
+                <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button
                             className="accordion-button collapsed"
-                            style={myStyle}
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne"
@@ -64,9 +67,9 @@ export default function About() {
                 
             </div>
 
-            <div className="container">
+            {/* <div className="container">
                 <button type="button" className="btn btn-primary" onClick={darkModeEnable}>{buttonName}</button>
-            </div>
+            </div> */}
         </div>
     );
 }
